@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_color"
+        app:layout_constraintBottom_toBottomOf="@id/bottombar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scrollbars="none">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/bg_image"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@drawable/main_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_notifications" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Portfolio Balance"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <TextView
+                android:id="@+id/Balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-black"
+                android:text="$12,724.33"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/balanceRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="+2.36% Last 24 Hours"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Balance" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif"
+                android:text="Trending"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/balanceRate" />
+
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView5"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_margin="8dp"
+                        android:background="#FFFFFF"
+                        app:cardCornerRadius="9dp">
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/cryptoIcon"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="24dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/bitcoin" />
+
+                            <TextView
+                                android:id="@+id/cryptoText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:fontFamily="sans-serif-black"
+                                android:text="Bitcoin"
+                                android:textSize="16dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/cryptoIcon"
+                                app:layout_constraintStart_toEndOf="@+id/cryptoIcon"
+                                app:layout_constraintTop_toTopOf="@+id/cryptoIcon" />
+
+                            <TextView
+                                android:id="@+id/cryptoSmallText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:fontFamily="sans-serif"
+                                android:text="BTC"
+                                android:textSize="8dp"
+                                app:layout_constraintStart_toEndOf="@+id/cryptoIcon"
+                                app:layout_constraintTop_toBottomOf="@+id/cryptoText" />
+
+
+                            <TextView
+                                android:id="@+id/cryptoValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="32dp"
+                                android:fontFamily="sans-serif-black"
+                                android:text="$29,455.24"
+                                android:textSize="16dp"
+                                app:layout_constraintStart_toStartOf="@+id/cryptoIcon"
+                                app:layout_constraintTop_toBottomOf="@+id/cryptoIcon" />
+
+                            <TextView
+                                android:id="@+id/cryptoValueRate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif"
+                                android:text="+7.24%"
+                                android:textColor="@color/rate_green"
+                                android:textSize="12dp"
+                                app:layout_constraintStart_toStartOf="@+id/cryptoIcon"
+                                app:layout_constraintTop_toBottomOf="@+id/cryptoValue" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView6"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_margin="8dp"
+                        android:background="#FFFFFF"
+                        android:clickable="true"
+                        android:onClick="ethereumClick"
+                        app:cardCornerRadius="9dp">
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/cryptoIcon1"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="24dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ethereum" />
+
+                            <TextView
+                                android:id="@+id/cryptoText1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:fontFamily="sans-serif-black"
+                                android:text="Ethereum"
+                                android:textSize="16dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/cryptoIcon1"
+                                app:layout_constraintStart_toEndOf="@+id/cryptoIcon1"
+                                app:layout_constraintTop_toTopOf="@+id/cryptoIcon1" />
+
+                            <TextView
+                                android:id="@+id/cryptoSmallText1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:fontFamily="sans-serif"
+                                android:text="ETH"
+                                android:textSize="8dp"
+                                app:layout_constraintStart_toEndOf="@+id/cryptoIcon1"
+                                app:layout_constraintTop_toBottomOf="@+id/cryptoText1" />
+
+
+                            <TextView
+                                android:id="@+id/cryptoValue1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="32dp"
+                                android:fontFamily="sans-serif-black"
+                                android:text="$919.03"
+                                android:textSize="16dp"
+                                app:layout_constraintStart_toStartOf="@+id/cryptoIcon1"
+                                app:layout_constraintTop_toBottomOf="@+id/cryptoIcon1" />
+
+                            <TextView
+                                android:id="@+id/cryptoValueRate1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif"
+                                android:text="+7.24%"
+                                android:textColor="@color/rate_red"
+                                android:textSize="12dp"
+                                app:layout_constraintStart_toStartOf="@+id/cryptoIcon1"
+                                app:layout_constraintTop_toBottomOf="@+id/cryptoValue1" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView7"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_margin="8dp"
+                        android:background="#FFFFFF"
+                        app:cardCornerRadius="9dp">
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/cryptoIcon2"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginStart="24dp"
+                                android:layout_marginTop="24dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/dogecoin" />
+
+                            <TextView
+                                android:id="@+id/cryptoText2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:fontFamily="sans-serif-black"
+                                android:text="Dogecoin"
+                                android:textSize="16dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/cryptoIcon2"
+                                app:layout_constraintStart_toEndOf="@+id/cryptoIcon2"
+                                app:layout_constraintTop_toTopOf="@+id/cryptoIcon2" />
+
+                            <TextView
+                                android:id="@+id/cryptoSmallText2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:fontFamily="sans-serif"
+                                android:text="DGC"
+                                android:textSize="8dp"
+                                app:layout_constraintStart_toEndOf="@+id/cryptoIcon2"
+                                app:layout_constraintTop_toBottomOf="@+id/cryptoText2" />
+
+
+                            <TextView
+                                android:id="@+id/cryptoValue2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="32dp"
+                                android:fontFamily="sans-serif-black"
+                                android:text="$0.12"
+                                android:textSize="16dp"
+                                app:layout_constraintStart_toStartOf="@+id/cryptoIcon2"
+                                app:layout_constraintTop_toBottomOf="@+id/cryptoIcon2" />
+
+                            <TextView
+                                android:id="@+id/cryptoValueRate2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif"
+                                android:text="+57.14%"
+                                android:textColor="@color/rate_green"
+                                android:textSize="12dp"
+                                app:layout_constraintStart_toStartOf="@+id/cryptoIcon2"
+                                app:layout_constraintTop_toBottomOf="@+id/cryptoValue2" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/alertCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="9dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/aletIcon"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_notifications_alert" />
+
+                    <TextView
+                        android:id="@+id/alertTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="Set Price Alert"
+                        android:textSize="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/aletIcon"
+                        app:layout_constraintTop_toTopOf="@+id/aletIcon" />
+
+                    <TextView
+                        android:id="@+id/alertText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:fontFamily="sans-serif"
+                        android:text="Get notified when your coins are moving"
+                        android:textSize="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/aletIcon"
+                        app:layout_constraintTop_toBottomOf="@+id/alertTitle" />
+
+                    <ImageView
+                        android:id="@+id/arrowIcon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_arrow_forward" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/safelyCardd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                app:cardBackgroundColor="@color/main_bg"
+                app:cardCornerRadius="9dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/alertCard">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="Investing Safely"
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="It's very difficult to time an investment, especially when the market is volatile. Learn how to use dollar cost averaging to your advantage."
+                        android:textColor="@color/white"
+                        android:textSize="12dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="@string/safely_link"
+                        android:textColor="@color/teal_200"
+                        android:textSize="12dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="92dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="9dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/safelyCardd">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="Transaction History"
+                        android:textSize="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/textView11">
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_compare_arrows" />
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:fontFamily="sans-serif-black"
+                            android:text="Sold Ethereum"
+                            app:layout_constraintStart_toEndOf="@+id/imageView4"
+                            app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+                        <TextView
+                            android:id="@+id/textView13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="14:20 15 Apr"
+                            android:textSize="10dp"
+                            app:layout_constraintStart_toStartOf="@+id/textView12"
+                            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:drawableRight="@drawable/ic_arrow_forward"
+                            android:drawablePadding="25dp"
+                            android:fontFamily="sans-serif-black"
+                            android:text="-2.0034 ETH"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+    <include
+        layout="@layout/bottom_bar"
+        android:id="@+id/bottombar"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
