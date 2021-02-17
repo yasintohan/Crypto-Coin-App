@@ -7,11 +7,17 @@
     tools:context=".DetailsActivity">
 
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swiperefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
     android:background="@color/bg_color"
     android:scrollbars="none">
 
@@ -114,7 +120,7 @@
                     android:text="-0.73%"
                     android:textColor="@color/rate_red"
                     android:textSize="12dp"
-                    app:layout_constraintStart_toStartOf="@+id/cryptoValue"
+                    app:layout_constraintEnd_toEndOf="@+id/cryptoValue"
                     app:layout_constraintTop_toBottomOf="@+id/cryptoValue" />
 
                 <ImageView
@@ -216,8 +222,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/countValue"
-                    android:clickable="true"
-                    android:onClick="ethereumClick"
                     android:theme="@style/Theme.Button"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -350,6 +354,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <include
         layout="@layout/bottom_bar"

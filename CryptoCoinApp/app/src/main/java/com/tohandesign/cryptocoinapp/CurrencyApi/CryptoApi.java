@@ -34,6 +34,18 @@ public class CryptoApi extends JsonTracker {
     }
 
 
+    public CryptoCoin getCoin(String id, String currency) throws ExecutionException, InterruptedException, JSONException {
+        String jsonStr = API_KEY+ "/coins/markets?vs_currency="+currency+"&ids="+id+"&order=market_cap_desc&per_page=100&page=1&sparkline=false";
+        List<CryptoCoin> itemList = new ArrayList<CryptoCoin>();
+
+        JSONArray jsonArray = new JSONArray(execute(jsonStr).get());
+        JSONObject o = jsonArray.getJSONObject(0);
+        CryptoCoin coin = new CryptoCoin(o.getString("id"),o.getString("symbol"),o.getString("name"), o.getString("image"), o.getDouble("current_price"), o.getInt("market_cap"), o.getInt("market_cap_rank"), o.getDouble("total_volume"), o.getDouble("high_24h"),o.getDouble("low_24h"),o.getDouble("price_change_percentage_24h"));
+
+        return coin;
+    }
+
+
 
 
 }

@@ -23,9 +23,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Person
     List<CryptoCoin> coins;
     String currency;
 
-    public RecyclerAdapter(List<CryptoCoin> coins, String currency){
+    private RecyclerViewClickInterface recyclerViewClickInterface;
+
+    public RecyclerAdapter(List<CryptoCoin> coins, String currency, RecyclerViewClickInterface recyclerViewClickInterface){
         this.coins = coins;
         this.currency = currency;
+        this.recyclerViewClickInterface = recyclerViewClickInterface;
     }
 
     @NonNull
@@ -75,6 +78,30 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Person
             valueView = (TextView)itemView.findViewById(R.id.cryptoValue);
             rateView = (TextView)itemView.findViewById(R.id.cryptoValueRate);
             image = (ImageView)itemView.findViewById(R.id.cryptoIcon);
+
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    recyclerViewClickInterface.onItemClick(getAdapterPosition());
+                }
+            });
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+
+                    recyclerViewClickInterface.onLongItemClick(getAdapterPosition());
+                    return true;
+                }
+            });
+
+
+
+
         }
+
+
     }
 }
