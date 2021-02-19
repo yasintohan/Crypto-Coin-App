@@ -8,11 +8,11 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.tohandesign.cryptocoinapp.Adapters.RecyclerAdapter;
@@ -20,15 +20,12 @@ import com.tohandesign.cryptocoinapp.Adapters.RecyclerViewClickInterface;
 import com.tohandesign.cryptocoinapp.CurrencyApi.CryptoApi;
 import com.tohandesign.cryptocoinapp.CurrencyApi.CryptoCoin;
 
-
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-public class MainActivity extends AppCompatActivity implements RecyclerViewClickInterface {
+public class ListActivity extends AppCompatActivity implements RecyclerViewClickInterface {
 
     private List<CryptoCoin> coins;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -37,20 +34,26 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
     RecyclerView recyclerView;
     LinearLayoutManager llm;
     RecyclerAdapter adapter = null;
+    private int pageCount = 1;
+
+    TextView previousBtn;
+    TextView nextBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list);
         BottomNavigationView bottomNavigationView = findViewById(R.id.navView);
         bottomNavigationView.setBackground(null);
-        bottomNavigationView.setSelectedItemId(R.id.main_home);
+        bottomNavigationView.setSelectedItemId(R.id.main_prices);
 
-
+        previousBtn = (TextView) findViewById(R.id.backPageBtn);
+        nextBtn = (TextView) findViewById(R.id.nextPageBtn);
 
         recyclerView = (RecyclerView)findViewById(R.id.mainRecView);
         recyclerView.setHasFixedSize(true);
-        llm = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL , false);
+        llm = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL , false);
         recyclerView.setLayoutManager(llm);
         getData();
 
@@ -71,13 +74,13 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 switch (item.getItemId()) {
+                    case R.id.main_home:
+                        Intent i = new Intent(getApplication(), MainActivity.class);
+                        startActivity(i);
+                        break;
                     case R.id.main_portfolio:
                         //Intent j = new Intent(getApplication(), ListActivity.class);
                         //startActivity(j);
-                        break;
-                    case R.id.main_prices:
-                        Intent k = new Intent(getApplication(), ListActivity.class);
-                        startActivity(k);
                         break;
                     case R.id.main_settings:
                         Intent l = new Intent(getApplication(), SettingsActivity.class);
@@ -94,10 +97,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
 
     private void getData(){
 
+        if(pageCount == 1) { previousBtn.setVisibility(View.INVISIBLE); } else { previousBtn.setVisibility(View.VISIBLE); }
+
         try {
             cryptoApi = new CryptoApi();
-            coins = cryptoApi.getCoins("usd",3,1);
-            adapter = new RecyclerAdapter(coins, "$", this, R.layout.main_card);
+            coins = cryptoApi.getCoins("usd",10,pageCount);
+            adapter = new RecyclerAdapter(coins, "$", this, R.layout.list_card);
             recyclerView.setAdapter(adapter);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -107,7 +112,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
             e.printStackTrace();
         }
     }
-
 
 
     @Override
@@ -123,9 +127,21 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewClick
         //coins.remove(position);
     }
 
+    public void pageClick(View v){
+        switch(v.getId()){
+            case R.id.backPageBtn:
+                pageCount--;
+                break;
+            case R.id.nextPageBtn:
+                pageCount++;
+                break;
+        }
+        getData();
+        adapter.notifyDataSetChanged();
+    }
 
-
-
-
+    public void backClicked(View v) {
+        super.onBackPressed();
+    }
 
 }

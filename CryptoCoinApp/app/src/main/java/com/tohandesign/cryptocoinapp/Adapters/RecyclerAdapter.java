@@ -22,19 +22,21 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Person
 
     List<CryptoCoin> coins;
     String currency;
+    int obj;
 
     private RecyclerViewClickInterface recyclerViewClickInterface;
 
-    public RecyclerAdapter(List<CryptoCoin> coins, String currency, RecyclerViewClickInterface recyclerViewClickInterface){
+    public RecyclerAdapter(List<CryptoCoin> coins, String currency, RecyclerViewClickInterface recyclerViewClickInterface, int obj){
         this.coins = coins;
         this.currency = currency;
         this.recyclerViewClickInterface = recyclerViewClickInterface;
+        this.obj = obj;
     }
 
     @NonNull
     @Override
     public PersonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.main_card, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(obj, parent, false);
         PersonViewHolder pvh = new PersonViewHolder(v);
         return pvh;
     }

@@ -5,7 +5,7 @@
         android:title="Home"
         android:icon="@drawable/ic_baseline_home_24"/>
 
-    <item android:id="@+id/main_home2"
+    <item android:id="@+id/main_portfolio"
         android:title="Portfolio"
         android:icon="@drawable/ic_pie_chart"/>
 
@@ -13,11 +13,11 @@
         android:title=""
        />
 
-    <item android:id="@+id/main_home3"
+    <item android:id="@+id/main_prices"
         android:title="Prices"
         android:icon="@drawable/ic_show_chart"/>
 
-    <item android:id="@+id/main_home4"
+    <item android:id="@+id/main_settings"
         android:title="Settings"
         android:icon="@drawable/ic_settings"/>
 </menu>

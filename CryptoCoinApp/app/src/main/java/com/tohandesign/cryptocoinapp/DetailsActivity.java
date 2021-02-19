@@ -1,5 +1,6 @@
 package com.tohandesign.cryptocoinapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -60,6 +62,33 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
 
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()) {
+                    case R.id.main_home:
+                        Intent i = new Intent(getApplication(), MainActivity.class);
+                        startActivity(i);
+                        break;
+                    case R.id.main_portfolio:
+                        //Intent j = new Intent(getApplication(), ListActivity.class);
+                        //startActivity(j);
+                        break;
+                    case R.id.main_prices:
+                        Intent k = new Intent(getApplication(), ListActivity.class);
+                        startActivity(k);
+                        break;
+                    case R.id.main_settings:
+                        //Intent l = new Intent(getApplication(), ListActivity.class);
+                        //startActivity(l);
+                        break;
+                }
+
+                return false;
+            }
+        });
+
 
 
     }
@@ -95,6 +124,10 @@ public class DetailsActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    public void backClicked(View v) {
+        super.onBackPressed();
     }
 
 
