@@ -8,7 +8,6 @@
 
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -125,14 +124,81 @@
                     app:layout_constraintEnd_toEndOf="@+id/cryptoValue"
                     app:layout_constraintTop_toBottomOf="@+id/cryptoValue" />
 
-                <ImageView
-                    android:id="@+id/imageView3"
+
+                <com.jjoe64.graphview.GraphView
+                    android:id="@+id/graph"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dip"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cryptoShort"
-                    app:srcCompat="@drawable/graph" />
+                    app:layout_constraintTop_toBottomOf="@+id/cryptoShort" />
+
+                <TextView
+                    android:id="@+id/onehrText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="true"
+                    android:onClick="chartDaysClicked"
+                    android:text="1hr"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/threeDay"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/graph" />
+
+                <TextView
+                    android:id="@+id/threeDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3 Days"
+                    app:layout_constraintBottom_toBottomOf="@+id/onehrText"
+                    app:layout_constraintEnd_toStartOf="@+id/oneWeek"
+                    app:layout_constraintStart_toEndOf="@+id/onehrText"
+                    app:layout_constraintTop_toTopOf="@+id/onehrText"
+                    android:clickable="true"
+                    android:onClick="chartDaysClicked"/>
+
+                <TextView
+                    android:id="@+id/oneWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Week"
+                    app:layout_constraintBottom_toBottomOf="@+id/onehrText"
+                    app:layout_constraintEnd_toStartOf="@+id/oneMonth"
+                    app:layout_constraintStart_toEndOf="@+id/threeDay"
+                    app:layout_constraintTop_toTopOf="@+id/onehrText"
+                    android:clickable="true"
+                    android:onClick="chartDaysClicked"/>
+
+                <TextView
+                    android:id="@+id/oneMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Month"
+                    app:layout_constraintBottom_toBottomOf="@+id/onehrText"
+                    app:layout_constraintEnd_toStartOf="@+id/maxText"
+                    app:layout_constraintStart_toEndOf="@+id/oneWeek"
+                    app:layout_constraintTop_toTopOf="@+id/onehrText"
+                    android:clickable="true"
+                    android:onClick="chartDaysClicked"/>
+
+                <TextView
+                    android:id="@+id/maxText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="max"
+                    app:layout_constraintBottom_toBottomOf="@+id/onehrText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/oneMonth"
+                    app:layout_constraintTop_toTopOf="@+id/onehrText"
+                    android:clickable="true"
+                    android:onClick="chartDaysClicked"/>
+
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
